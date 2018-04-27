@@ -8,16 +8,16 @@ hindsight <- function(training, testing, nfeatures, nlags = 2, units = 10, units
         training = time_series(training, nlags, nfeatures)
         
         # Prepare training sets for LSTM
-        train_1 = as.matrix(training[,ncol(training)])
-        train_2 = as.matrix(training[,-ncol(training)])
+        train_1 = matrix(training[,ncol(training)])
+        train_2 = data.matrix(training[,-ncol(training)])
         train_2 <- array(train_2, dim=c(dim(training)[1], nlags, nlags*nfeatures))
         
         # Preprocessing of the testing set
         testing = time_series(testing, nlags, nfeatures)
         
         # Prepare testing sets for LSTM
-        test_1 = as.matrix(testing[,ncol(testing)])
-        test_2 = as.matrix(testing[,-ncol(testing)])
+        test_1 = matrix(testing[,ncol(testing)])
+        test_2 = data.matrix(testing[,-ncol(testing)])
         test_2 <- array(test_2, dim=c(dim(testing)[1], nlags, nlags*nfeatures))
         
         if (isTRUE(rs)) {
