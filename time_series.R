@@ -1,4 +1,4 @@
-#-------------------- Data Preprocessing --------------------#
+#-------------------- time_series --------------------#
 time_series <- function(data, nlags, nfeatures) {
         for (i in 1:nlags) {
                 for (j in 1:nfeatures) {
@@ -8,7 +8,11 @@ time_series <- function(data, nlags, nfeatures) {
                                 break
                         } else {
                                 ntemp = paste("feat",j,"(t-",nlags-i,")",sep="")
-                                data[ntemp] = shift(data[[j]],i)
+                                if (is.factor(data[[j]])) {
+                                        data[ntemp] = factor(shift(as.numeric(as.character(data[[j]])),i), levels = levels(data[[j]]))
+                                } else {
+                                        data[ntemp] = shift(data[[j]],i)
+                                }
                         }
                 }
         }  
@@ -20,6 +24,6 @@ time_series <- function(data, nlags, nfeatures) {
 }        
 
 #-------------------- Shift function --------------------#
-shift <- function(nfeatures, steps) {
-        c(nfeatures[-(seq(steps))], rep(NA,steps))
+shift <- function(data, steps) {
+        c(data[-(seq(steps))], rep(NA,steps))
 }
