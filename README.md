@@ -90,3 +90,5 @@
 * Michael Riegler (michael@simula.no)
 * Ozgu Alay (ozgu@simula.no)
 * Antonios Argyriou (anargyr@uth.gr)
+
+For updates on HINDISIGHT visit: https://bitbucket.org/konstantinoskousias/hindsight
