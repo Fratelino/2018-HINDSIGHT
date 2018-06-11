@@ -91,4 +91,4 @@
 * Ozgu Alay (ozgu@simula.no)
 * Antonios Argyriou (anargyr@uth.gr)
 
-For updates on HINDISIGHT visit: https://bitbucket.org/konstantinoskousias/hindsight
+For updates on HINDSIGHT visit: https://bitbucket.org/konstantinoskousias/hindsight
